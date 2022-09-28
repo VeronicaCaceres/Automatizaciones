@@ -30,7 +30,7 @@ public class Driver {
 				break;	
 			}			    
 			case EDGE:{
-				System.setProperty("webdriver.edge.driver", "E:\\Descargas\\zip maven-chromedrive-seleniun\\edgedriver_win64\\edgedriver.exe"); 
+				System.setProperty("webdriver.edge.driver", "E:\\Descargas\\zip maven-chromedrive-seleniun\\edgedriver_win64\\msedgedriver.exe"); 
 				System.out.print("Iniciando Edge");
 				driver = new EdgeDriver();
 				break;

@@ -16,40 +16,48 @@ public class AlojamientoPage {
 	@FindBy(xpath ="//h1[text()='Alojamientos']")
 	private WebElement tituloAlojamientos;
 
-	@FindBy(xpath="//input[@placeholder='Ingresá una ciudad, alojamiento o punto de interés']")
+	@FindBy(css= "input[placeholder=\"Ingresá una ciudad, alojamiento o punto de interés\"]")
+	//(xpath="//input[@placeholder='Ingresá una ciudad, alojamiento o punto de interés']")//
 	private WebElement Destino;
 
-	@FindBy(xpath="//input[@placeholder='Entrada']")
+	@FindBy (css= "input[placeholder=Entrada]")
+	//(xpath="//input[@placeholder='Entrada']")
 	private WebElement calendario;
 
-	@FindBy(xpath="//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@data-month='2022-09']//*[text()='26']")
+	@FindBy(xpath="//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@data-month='2022-09']//*[text()='29']")
 	private WebElement fechaEntrada;
 
-	@FindBy(xpath="//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@data-month='2022-09']//*[text()='29']")
+	@FindBy(xpath="//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@data-month='2022-09']//*[text()='30']")
 	private WebElement fechaSalida;
 
 	@FindBy(xpath="//button[@class='sbox5-3-btn -primary -md']")
 	private WebElement buttonAplicarFecha;
 
-	@FindBy(xpath="//input[@class='sbox5-3-second-input']")
+	@FindBy(css="input.sbox5-3-second-input")
+	//(xpath="//input[@class='sbox5-3-second-input']")
 	private WebElement habitaciones;
 
-	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[1][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
+	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div:nth-child(1).stepper__room__row button.steppers-icon-right.stepper__icon")
+	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[1][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
 	private WebElement agregarAdulto;
 
-	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[2][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
+	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div:nth-child(2).stepper__room__row button.steppers-icon-right.stepper__icon")
+	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[2][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
 	private WebElement agregarMenor;
 
-	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']")
+	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div.stepper__room__row div.sbox5-select.-md")
+	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']")
 	private WebElement comboMenores;
 
-	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']//option[@value=4]")
+	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div.stepper__room__row div.sbox5-select.-md option:nth-child(6)")
+	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']//option[@value=4]")
 	private WebElement edad;
 
 	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[@class='stepper__room__footer ']//em[text()='Aplicar']")
 	private WebElement buttonAplicarHabitacion;
 
-	@FindBy(xpath="//button[@class='sbox5-box-button-ovr sbox5-3-btn sbox5-button -secondary -icon -lg']")
+	@FindBy(css="button.sbox5-box-button-ovr.sbox5-3-btn.sbox5-button.-secondary.-icon.-lg")
+	//(xpath="//button[@class='sbox5-box-button-ovr sbox5-3-btn sbox5-button -secondary -icon -lg']")//
 	private WebElement buttonBuscar;
 
 	private WebDriver driver=null;
@@ -67,9 +75,9 @@ public class AlojamientoPage {
 	wait.until(ExpectedConditions.elementToBeClickable(Destino));
 	Destino.click();
 	   Destino.sendKeys(text);
-	Thread.sleep(6000);
+	Thread.sleep(3000);
 	Destino.sendKeys(Keys.CONTROL);
-	Thread.sleep(4000);
+	Thread.sleep(2000);
 	Destino.sendKeys(Keys.ENTER);
 	}
 

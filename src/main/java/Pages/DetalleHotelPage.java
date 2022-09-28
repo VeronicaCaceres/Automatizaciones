@@ -31,7 +31,7 @@ public class DetalleHotelPage {
 		
 		
 		System.out.println("Hotel Seleccionado "+ TituloHotel.getText());
-		/*Assert.assertEquals(TituloHotel.getText(), "Hotel Regente", "No se encontro el Hotel");*/
+		
 	}
 
 }

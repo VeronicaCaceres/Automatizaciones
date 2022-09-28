@@ -12,10 +12,12 @@ import Pages.AlojamientoPage;
 
 
 public class DespegarHomePage {
-	@FindBy(xpath ="//a[@title='Alojamientos']")
+	@FindBy(css="a[title=Alojamientos]")
+	//(xpath ="//a[@title='Alojamientos']")
 	private WebElement buttonAlojamiento;
 	
-	@FindBy(xpath="//a[@title='Vuelos']")
+	@FindBy(css="a[title=Vuelos]")
+	//(xpath="//a[@title='Vuelos']")
 	private WebElement buttonVuelos;
 	
 	private WebDriver driver=null;

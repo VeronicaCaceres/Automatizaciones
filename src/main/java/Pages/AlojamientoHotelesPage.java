@@ -13,7 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Pages.DetalleHotelPage;
 
 public class AlojamientoHotelesPage {
-	@FindBy(xpath="//div[1][@class='results-cluster-container']//div[@class='pricebox-action']//button[@class='eva-3-btn -md -primary -eva-3-fwidth']")
+	@FindBy(css="div:nth-child(1).results-cluster-container div:nth-child(2).pricebox-action button.eva-3-btn.-md.-primary.-eva-3-fwidth")
+	//(xpath="//div[1][@class='results-cluster-container']//div[@class='pricebox-action']//button[@class='eva-3-btn -md -primary -eva-3-fwidth']")
 	private WebElement Detalles;
 	
 	private WebDriver driver=null;
@@ -21,7 +22,6 @@ public class AlojamientoHotelesPage {
 	
 	
 	public AlojamientoHotelesPage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
 		this.driver=driver;		
 		this.wait= new WebDriverWait(driver, Duration.ofSeconds(5));
 				
@@ -29,9 +29,8 @@ public class AlojamientoHotelesPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public DetalleHotelPage ClickBotonDetalles()throws Exception {	
+	public DetalleHotelPage ClickBotonDetalles() {	
 		wait.until(ExpectedConditions.elementToBeClickable(Detalles));
-		Thread.sleep(3000);
 		Detalles.click();
 		
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
