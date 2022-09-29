@@ -1,6 +1,7 @@
 package Pages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,10 @@ public class DespegarHomePage {
 	//(xpath="//a[@title='Vuelos']")
 	private WebElement buttonVuelos;
 	
+	@FindBy(css="div.header-corners-container li.header-product-item")
+	//(xpath="//li[@class='header-product-item ']")
+	private List<WebElement> listaOpciones;
+	
 	private WebDriver driver=null;
 	private WebDriverWait wait=null;
 	
@@ -37,6 +42,10 @@ public class DespegarHomePage {
 		
 		return new AlojamientoPage(this.driver);
 				
+	}
+    
+    public List<WebElement> ListaBotones(){
+		return listaOpciones;
 	}
 	
 }

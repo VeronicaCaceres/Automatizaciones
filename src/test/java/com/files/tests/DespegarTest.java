@@ -1,6 +1,10 @@
 package com.files.tests;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,22 +19,24 @@ import Pages.DetalleHotelPage;
 public class DespegarTest {
 WebDriver driver;
 
-@BeforeMethod
+@BeforeMethod(alwaysRun= true)
 public void iniciarDriver(ITestContext context) {
 	//obtener navegador
 	String navegadorSuite = context.getCurrentXmlTest().getParameter("Navegador");
-	String navegador = navegadorSuite!=null ? navegadorSuite:"EDGE" ;
+	String navegador = navegadorSuite!=null ? navegadorSuite:"CHROME" ;
 	//URL
 	String url ="https://www.despegar.com.ar";
 	driver=Driver.AbrirBrowser(navegador, url);
 	
 }
+@DataProvider(name="Destino")
+public Object[][] DataProviderDestino(){
+	return new Object[][] {{"España"},{"Italia"}};
+}
 
+@Test(dataProvider="Destino", description = "Validar la seccion alojamiento de la web Despegar.com")
 
-
-@Test(description = "Validar la seccion alojamiento de la web Despegar.com")
-
-public void ValidarWebDespegar() throws Exception {
+public void ValidarWebDespegar(String lugar ) throws Exception {
 	
 	
 	DespegarHomePage homePage= new DespegarHomePage(driver);
@@ -39,7 +45,7 @@ public void ValidarWebDespegar() throws Exception {
 	AlojamientoPage alojamiento =homePage.clickAlojamiento();
 	
 	//Ingresar Destino
-	alojamiento.ingresarDestino("España");
+	alojamiento.ingresarDestino(lugar);
 	
 	//Seleccionar fecha
 	alojamiento.clickCalendario();
@@ -80,10 +86,22 @@ public void ValidarWebDespegar() throws Exception {
 	//Ver informacion de Hotel
 	DetalleHotelPage detalledelHotel= alojamientoHotel.ClickBotonDetalles();
 	
-	// Detalle del Hotel
-	detalledelHotel.InfoHotel();
+	//Validacion de Titulo Hotel	
+	Assert.assertTrue(detalledelHotel.validarTituloHotel(),"No se encuentra el titulo");			
+	System.out.println("Hotel Seleccionado "+ detalledelHotel.InfoHotel());
 	
 	
+}
+@Test(description = "Prueba Botones Menu")
+public void ObtenerBotonesMenu() throws Exception {	
+	
+	DespegarHomePage homePage= new DespegarHomePage(driver);
+	
+	List<WebElement> lista=homePage.ListaBotones();
+	
+	for(WebElement boton:lista) {
+		System.out.println(boton.getText());
+	}
 	
 }
 

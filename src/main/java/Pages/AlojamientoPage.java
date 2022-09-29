@@ -17,11 +17,9 @@ public class AlojamientoPage {
 	private WebElement tituloAlojamientos;
 
 	@FindBy(css= "input[placeholder=\"Ingresá una ciudad, alojamiento o punto de interés\"]")
-	//(xpath="//input[@placeholder='Ingresá una ciudad, alojamiento o punto de interés']")//
 	private WebElement Destino;
 
 	@FindBy (css= "input[placeholder=Entrada]")
-	//(xpath="//input[@placeholder='Entrada']")
 	private WebElement calendario;
 
 	@FindBy(xpath="//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@data-month='2022-09']//*[text()='29']")
@@ -34,30 +32,24 @@ public class AlojamientoPage {
 	private WebElement buttonAplicarFecha;
 
 	@FindBy(css="input.sbox5-3-second-input")
-	//(xpath="//input[@class='sbox5-3-second-input']")
 	private WebElement habitaciones;
 
 	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div:nth-child(1).stepper__room__row button.steppers-icon-right.stepper__icon")
-	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[1][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
 	private WebElement agregarAdulto;
 
 	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div:nth-child(2).stepper__room__row button.steppers-icon-right.stepper__icon")
-	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[2][@class='stepper__room__row']//button[@class='steppers-icon-right stepper__icon']")
 	private WebElement agregarMenor;
 
 	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div.stepper__room__row div.sbox5-select.-md")
-	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']")
 	private WebElement comboMenores;
 
 	@FindBy(css="div.sbox5-floating-tooltip.sbox5-floating-tooltip-opened div.stepper__room__row div.sbox5-select.-md option:nth-child(6)")
-	//(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[3][@class='stepper__room__row']//div[@class='sbox5-select -md']//option[@value=4]")
 	private WebElement edad;
 
 	@FindBy(xpath="//div[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//div[@class='stepper__room__footer ']//em[text()='Aplicar']")
 	private WebElement buttonAplicarHabitacion;
 
 	@FindBy(css="button.sbox5-box-button-ovr.sbox5-3-btn.sbox5-button.-secondary.-icon.-lg")
-	//(xpath="//button[@class='sbox5-box-button-ovr sbox5-3-btn sbox5-button -secondary -icon -lg']")//
 	private WebElement buttonBuscar;
 
 	private WebDriver driver=null;
@@ -93,7 +85,7 @@ public class AlojamientoPage {
 	}
 
 	public void clickFechaSalida()throws Exception {
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.visibilityOf(fechaSalida));
 		wait.until(ExpectedConditions.elementToBeClickable(fechaSalida));
 		fechaSalida.click();
 	}

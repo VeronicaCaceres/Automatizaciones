@@ -16,7 +16,7 @@ public class Driver {
 		WebDriver driver = null;
 		switch(browsers.valueOf(browserName))  {
 			case CHROME:{
-				System.setProperty("webdriver.chrome.driver", "E:\\Descargas\\zip maven-chromedrive-seleniun\\chromedriver_win32\\chromedriver.exe"); 
+				System.setProperty("webdriver.chrome.driver","E:\\Descargas\\zip maven-chromedrive-seleniun\\chromedriver_win32\\chromedriver.exe"); 						
 				System.out.print("Iniciando Chrome");
 				ChromeOptions option = new ChromeOptions();		
 				option.setAcceptInsecureCerts(true);

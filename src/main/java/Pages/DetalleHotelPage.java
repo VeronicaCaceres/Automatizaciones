@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class DetalleHotelPage {
-	@FindBy(xpath="//div[@class='main-info']//h1[@class='accommodation-name eva-3-h2']")
+	@FindBy(css=".main-info h1.accommodation-name.eva-3-h2")
 	private WebElement TituloHotel;
 	
 	private WebDriver driver=null;
@@ -25,13 +25,17 @@ public class DetalleHotelPage {
 	PageFactory.initElements(driver, this);
 	}
 	
-	public void InfoHotel() {
+	public boolean validarTituloHotel() {
 		wait.until(ExpectedConditions.visibilityOf(TituloHotel));
-		Assert.assertTrue(TituloHotel.isDisplayed(),"No se encuentra el titulo");
-		
-		
-		System.out.println("Hotel Seleccionado "+ TituloHotel.getText());
-		
+		return TituloHotel.isDisplayed();
 	}
+		
+	public String InfoHotel() {
+	wait.until(ExpectedConditions.visibilityOf(TituloHotel));
+	return TituloHotel.getText();			
+	}
+	
+	
+	
 
 }
